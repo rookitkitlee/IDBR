@@ -16,23 +16,11 @@ from sklearn.mixture import GaussianMixture  # 高斯混合模型
 import pandas as pd
 from torch.autograd import Variable
 
-# all 8
-# AUC-ROC =  0.9526941325192706  AUC-PR =  0.9688295824426146
-# AUC-ROC =  0.9525555496013063  AUC-PR =  0.9670720188568778
 
-# hei
-
-
-# he
-# AUC-ROC =  0.9397102365819867  AUC-PR =  0.9575702633964104
-
-
-
-
-class CF4(nn.Module):
+class CFLink(nn.Module):
 
     def __init__(self, p: Param, device):
-        super(CF4, self).__init__()
+        super(CFLink, self).__init__()
 
         self.p = p
         self.device = device

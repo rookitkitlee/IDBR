@@ -141,43 +141,22 @@ class HandleStepMixOrder:
     def execute4(p:Param):
        
         print('HandleStepMixOrder -----')
- 
-        MM2 = HandleStepMixOrder.normalization(np.matmul(p.R, p.R.T)) 
-        MM2 = MM2 / np.max(MM2)
-        # MM2 = np.matmul(p.R, p.R.T)
+
+        MM2 = HandleStepMixOrder.normalization(np.matmul(p.R, p.R.T))
         MM4 = np.matmul(MM2, MM2)
-        MM4 = MM4 / np.max(MM4)
         MM6 = np.matmul(MM4, MM2)
-        MM6 = MM6 / np.max(MM6)
         MM8 = np.matmul(MM6, MM2)
-        MM8 = MM8 / np.max(MM8)
-        # MM10 = np.matmul(MM8, MM2)
-        MM = MM2 + MM4 + MM6 + MM8
+        MM10 = np.matmul(MM8, MM2)
+        MM = MM2 + MM4 + MM6 + MM8 + MM10
 
-        NN2 = HandleStepMixOrder.normalization(np.matmul(p.R.T, p.R)) 
-        NN2 = NN2 / np.max(NN2)
-        # NN2 = np.matmul(p.R.T, p.R)
+        NN2 = HandleStepMixOrder.normalization(np.matmul(p.R.T, p.R))
         NN4 = np.matmul(NN2, NN2)
-        NN4 = NN4 / np.max(NN4)
-
         NN6 = np.matmul(NN4, NN2)
-        NN6 = NN6 / np.max(NN6)
         NN8 = np.matmul(NN6, NN2)
-        NN8 = NN8 / np.max(NN8)
-        # NN10 = np.matmul(NN8, NN2)
-        NN = NN2 + NN4 + NN6 + NN8
+        NN10 = np.matmul(NN8, NN2)
+        NN = NN2 + NN4 + NN6 + NN8 + NN10
 
-
-        # MM = HandleStepMixOrder.normalization(MM)
-        # MM = MM / np.max(MM) * 10
-
-        # NN = HandleStepMixOrder.normalization(NN)
-        # NN = NN / np.max(NN) * 10
-
-        # p.mm = HandleStepMixOrder.normalization(MM)
-        # p.nn = HandleStepMixOrder.normalization(NN)
         p.mm = MM
         p.nn = NN
-
 
         return p

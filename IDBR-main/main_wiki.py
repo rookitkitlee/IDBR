@@ -16,7 +16,7 @@ import sys
 R, TrainU, TrainV, TrainR, TestU, TestV, TestR, ue, ie = HandleStepLoadData.read_wiki()
 LKTrain, LKTest = HandleStepLoadData.read_wiki_lk(ue, ie)
 p = HandleStepGenerateParam.execute(R, TrainU, TrainV, TrainR, TestU, TestV, TestR, 64, 64, 128)
-p = HandleStepMixOrder.execute3(p)
+p = HandleStepMixOrder.execute4(p)
 p = HandleStepTrainCFLink.execute(p, 10001, LKTrain, LKTest, "WIKI")
 
 
